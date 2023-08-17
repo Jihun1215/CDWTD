@@ -49,6 +49,8 @@ const HeaderContiner = styled.header`
   ${props => props.theme.FlexRow};
   ${props => props.theme.FlexCenter};
   background-color: ${props => props.theme.bgColor};
+  border-bottom-left-radius: 14px;
+  border-bottom-right-radius: 14px;
 `;
 
 const HeaderThisMonthContiner = styled.div`

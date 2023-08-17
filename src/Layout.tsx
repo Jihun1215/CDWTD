@@ -32,16 +32,17 @@ const LayoutContiner = styled.div`
 const LayoutInContiner = styled.div`
     width: 95%;
     height: 100%;
-    border: 1px solid red; 
 `;
 
 const LayoutCTContiner = styled.div`
     width: 95%;
     height: 80%;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     margin: 80px auto;
     ${props => props.theme.FlexRow};
-    ${props => props.theme.FlexCenter};
+    justify-content: center;
+    /* ${props => props.theme.FlexCenter}; */
+    gap: 0px 30px;
 `;
 
 // const LayoutHeaderContiner = styled.``
