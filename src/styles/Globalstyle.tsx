@@ -7,20 +7,15 @@ export const GlobalStyle = createGlobalStyle`
   margin: 0;
   padding: 0;
 }
-
-    html, body {
-/* overflow: overlay; */
-width: 100%;
-height: 67.5rem;
-}
-
-
-/* @font-face {
-    font-family: 'KCC-DodamdodamR';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/KCC-DodamdodamR.woff2') format('woff2');
+@font-face {
+    font-family: 'KCCChassam';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/KCCChassam.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
-} */
+  }
+
+
+
 
 
 body {
@@ -28,7 +23,7 @@ body {
   overflow-x: hidden;
   width: 100%;
   height: 62.5rem;
-  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif !important;
+  font-family: 'KCCChassam', sans-serif;
   font-weight: 500;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

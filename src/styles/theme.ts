@@ -13,7 +13,7 @@ const colorTheme: DefaultTheme = {
     primary_heavy: "#A0C49D",
     primary_altemative: "#FFC672",
     primary_assistive: "#FFE4BC",
-    dark_beige: "AA9178",
+    dark_beige: "#AA9178",
 }
 
 const WH100 = css`
@@ -36,26 +36,33 @@ const FlexCenter = css`
   align-items: center;
 `;
 
+const BoxCenter = css`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 const theme = { 
     colorTheme,
     WH100,
     FlexCol,
     FlexRow,
-    FlexCenter
+    FlexCenter,
+    BoxCenter,
 }
 
 export const Theme: DefaultTheme = {
     ...theme,
-    bgColor: '#f1f3f5',
+    bgColor: '#F1F0E8',
     bgColor2: '#dee2e6',
     color: '#191A23',
     color2: '#E2E2E2',
 }
 
-export const DarkTheme: DefaultTheme = {
-    ...theme,   
-    bgColor: '#1e1e1e',
-    bgColor2: '#282c34',
-    color: '#E2E2E2',
-    color2: '#191A23',
-}
+// export const DarkTheme: DefaultTheme = {
+//     ...theme,   
+//     bgColor: '#1e1e1e',
+//     bgColor2: '#282c34',
+//     color: '#E2E2E2',
+//     color2: '#191A23',
+// }
