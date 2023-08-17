@@ -1,27 +1,27 @@
 import React from 'react'
 import { styled } from 'styled-components'
+import { useRecoilState } from 'recoil';
+import { ThisDayState } from '../atoms'
 
 const Header = () => {
 
   // 현재 날짜 객체 생성
- const currentDate: Date = new Date();
- const thisYear = currentDate.getFullYear(); // 년도
+  const [currentDate] = useRecoilState(ThisDayState);
+
+  const thisYear = currentDate.getFullYear(); // 년도
 
 
- const monthNames: string[] = [
+  const monthNames: string[] = [
     "January", "February", "March", "April", "May", "June", 
     "July", "August", "September", "October", "November", "December"
   ]; 
 
- const currentMonthIndex: number = currentDate.getMonth();
+  const currentMonthIndex: number = currentDate.getMonth();
 
- const currentMonth: string = monthNames[currentMonthIndex];
+   const currentMonth: string = monthNames[currentMonthIndex];
 
- const currentDay = currentDate.getDate();
-//  console.log(currentDate)
+   const currentDay = currentDate.getDate();
 
-
-//   console.log(thisYear)
   return (
     <HeaderContiner>
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import { styled } from 'styled-components'
+import Info from './Calendar/Info';
 import HeaderCalendar from './Calendar/HeaderCalendar';
 import MainCalendar from './Calendar/MainCalendar';
 
@@ -17,6 +18,7 @@ const Calendar:React.FC = () => {
 
   return (
     <CalendarContiner>
+      <Info/>
         <HeaderCalendar/>
         <MainCalendar/>
     </CalendarContiner>
@@ -26,8 +28,8 @@ const Calendar:React.FC = () => {
 export default Calendar
 
 const CalendarContiner = styled.div`
-    width: 65%;
-    height: 80%;
+    width: 50%;
+    height: 37.5rem;
     background-color: ${props => props.theme.bgColor};
     border-radius: 6px;
     ${props => props.theme.FlexCol};

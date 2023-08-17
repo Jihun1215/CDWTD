@@ -9,7 +9,7 @@ const Layout = () => {
   return (
     <LayoutContiner>
         <LayoutInContiner>
-            <Header/>
+            {/* <Header/> */}
 
             <LayoutCTContiner>
                 <Calendar/>
@@ -32,17 +32,16 @@ const LayoutContiner = styled.div`
 const LayoutInContiner = styled.div`
     width: 95%;
     height: 100%;
+    ${props => props.theme.BoxCenter};
 `;
 
 const LayoutCTContiner = styled.div`
-    width: 95%;
+    width: 100%;
     height: 80%;
-    /* border: 1px solid red; */
-    margin: 80px auto;
     ${props => props.theme.FlexRow};
     justify-content: center;
+    
     /* ${props => props.theme.FlexCenter}; */
-    gap: 0px 30px;
 `;
 
 // const LayoutHeaderContiner = styled.``

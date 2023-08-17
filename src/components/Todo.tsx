@@ -10,9 +10,9 @@ const Todo:React.FC = () => {
 export default Todo
 
 const TodoContienr = styled.div`
-    margin-top: 50px;
-    width: 30%;
-    height: 50%;
-    background-color: ${props => props.theme.bgColor};
-    border-radius: 6px;
+    width: 50%;
+    height: 37.5rem;
+    ${props => props.theme.FlexCol};
+    ${props => props.theme.FlexCenter};
+    border: 1px solid red;
 `;
