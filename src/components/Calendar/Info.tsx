@@ -1,38 +1,31 @@
 import React, { useEffect, useState } from 'react';
 import { styled } from 'styled-components'
 import axios from 'axios'
+import { WeatherData } from '../../model/type';
 
-interface WeatherData {
-    main: {
-      temp: number;
-    };
-    weather: {
-      icon: string;
-    }[];
-  }
   
-
 const Info:React.FC = () => {
     const [weather, setWeather] = useState<WeatherData | null>(null);
     const apiKey: string | undefined = process.env.REACT_APP_API_KEY;
-useEffect(() => {
-    if(apiKey){
-      const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=CheongJu&appid=${apiKey}&units=metric`;
 
-      axios.get(apiUrl)
-      .then(response => {
-        setWeather(response.data);
-      })
-      .catch(error => {
-        console.error('Error fetching weather data:', error);
-      });
-    }
+
+    useEffect(() => {
+      if(apiKey){
+        const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=CheongJu&appid=${apiKey}&units=metric`;
+
+        axios.get(apiUrl)
+        .then(response => {
+          setWeather(response.data);
+        })
+        .catch(error => {
+         console.error('Error fetching weather data:', error);
+        });
+     }
    
-
-  }, []);
+    }, []);
 
   if (!weather) {
-    return <div>Loading...</div>;
+    return <div>여가 로딩바 넣기러기...</div>;
   }
 
   const weatherIconUrl = `http://openweathermap.org/img/wn/${weather.weather[0].icon}.png`;
@@ -42,7 +35,7 @@ useEffect(() => {
         <InfoLeftArea>
             <div>
               <h4>지훈</h4>
-              <p>9월안에 취준</p>
+              <p>하이하이</p>
             </div>  
         </InfoLeftArea>
         <InfoRight>
