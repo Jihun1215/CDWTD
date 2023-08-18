@@ -10,7 +10,6 @@ const Layout = () => {
     <LayoutContiner>
         <LayoutInContiner>
             {/* <Header/> */}
-
             <LayoutCTContiner>
                 <Calendar/>
                 <Todo/>
@@ -26,7 +25,6 @@ const LayoutContiner = styled.div`
   width: 100%;
   height: 1080px;
   ${props => props.theme.BoxCenter};
-  /* background-color: ${props => props.theme.bgColor}; */
 `;
 
 const LayoutInContiner = styled.div`

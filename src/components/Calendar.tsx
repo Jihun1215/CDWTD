@@ -3,12 +3,14 @@ import { styled } from 'styled-components'
 import Info from './Calendar/Info';
 import HeaderCalendar from './Calendar/HeaderCalendar';
 import MainCalendar from './Calendar/MainCalendar';
+import { useRecoilState } from 'recoil';
+import { ThisDayState } from '../atoms'
 
 const Calendar:React.FC = () => {
-
+  const [currentDate, setCurrentDate] = useRecoilState<Date>(ThisDayState);
 
   // 현재 날짜 객체 생성
- const currentDate: Date = new Date();
+//  const currentDate: Date = new Date();
  const thisYear = currentDate.getFullYear(); // 년도
  const thisMonth = currentDate.getMonth() + 1; 
 
@@ -19,7 +21,8 @@ const Calendar:React.FC = () => {
   return (
     <CalendarContiner>
       <Info/>
-        <HeaderCalendar/>
+        
+        <HeaderCalendar currentDate={currentDate} setCurrentDate={setCurrentDate}/>
         <MainCalendar/>
     </CalendarContiner>
   )
@@ -28,7 +31,7 @@ const Calendar:React.FC = () => {
 export default Calendar
 
 const CalendarContiner = styled.div`
-    width: 50%;
+    min-width: 31.25rem;
     height: 37.5rem;
     background-color: ${props => props.theme.bgColor};
     border-radius: 6px;

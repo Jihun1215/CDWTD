@@ -7,3 +7,8 @@ export const ThisDayState = atom<Date>({
     key: 'ThisDayState',
     default: today,
 });
+
+export const TodayWeekState = atom<string>({
+    key: 'TodayWeekState',
+    // default: today,
+})

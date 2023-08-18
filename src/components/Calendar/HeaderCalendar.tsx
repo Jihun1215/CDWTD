@@ -4,13 +4,16 @@ import { useRecoilState } from 'recoil';
 import { ThisDayState } from '../../atoms'
 import { BsArrowLeftShort } from "react-icons/bs"
 import { BsArrowRightShort } from "react-icons/bs"
+import { Datedatatype } from '../../model/type'
 
-const HeaderCalendar = () => {
-
-   // 현재 날짜 객체 생성
-   const [currentDate] = useRecoilState(ThisDayState);
+const HeaderCalendar:React.FC<Datedatatype> = ({currentDate, setCurrentDate}) => {
 
    const ThisDay = `${currentDate.getFullYear()}년  ${currentDate.getMonth() + 1}월`;
+
+
+  const ChangeMonth = (change: number) =>{
+    console.log(change)
+  };
 
 
   return (
@@ -23,11 +26,11 @@ const HeaderCalendar = () => {
       <HeaderThisDayChange>
 
         <div> 
-          <BsArrowLeftShort/>
+          <BsArrowLeftShort  onClick={()=> ChangeMonth(-1)}/>
         </div>
 
         <div>
-          <BsArrowRightShort/>
+          <BsArrowRightShort  onClick={()=> ChangeMonth(1)}/>
         </div>
 
       </HeaderThisDayChange>
