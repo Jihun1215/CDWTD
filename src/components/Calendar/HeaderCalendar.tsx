@@ -12,7 +12,9 @@ const HeaderCalendar:React.FC<Datedatatype> = ({currentDate, setCurrentDate}) =>
 
 
   const ChangeMonth = (change: number) =>{
-    console.log(change)
+    const date = new Date(currentDate.getTime());
+    date.setMonth(date.getMonth() + change)
+    setCurrentDate(date)
   };
 
 
