@@ -46,7 +46,6 @@ export default HeaderCalendar
 const HeaderCalendarContiner = styled.header`
     width: 100%;
     height: 8%;
-    border: 1px solid red;
     ${props => props.theme.FlexRow};
     ${props => props.theme.FlexCenter};
     gap: 0 20%;

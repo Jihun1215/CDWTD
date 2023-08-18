@@ -38,7 +38,8 @@ const LayoutCTContiner = styled.div`
     height: 80%;
     ${props => props.theme.FlexRow};
     justify-content: center;
-    
+    color: ${props => props.theme.color2};
+    gap: 0px 15px;
     /* ${props => props.theme.FlexCenter}; */
 `;
 

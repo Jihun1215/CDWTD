@@ -52,7 +52,6 @@ export default Info
 const InfoContiner = styled.div`
     width: 100%;
     height: 3.5rem;
-    border: 1px solid red;
     ${props => props.theme.FlexRow};
     ${props => props.theme.FlexCenter};
     gap: 0px 20%;
@@ -62,9 +61,7 @@ const InfoLeftArea = styled.div`
     width: 40%;
     height: 100%;
     ${props => props.theme.FlexCol};
-    /* align-items: center; */
     justify-content: center;
-    /* border: 1px solid red; */
     padding-left: 1rem;
     > div {
         width: 50%;
@@ -86,12 +83,10 @@ const InfoRight = styled.div`
     ${props => props.theme.FlexRow};
     justify-content: right;
     align-items: center;
-    border: 1px solid red;
     padding-right: 1rem;
     gap: 0px 5px;
     > img {
-        /* background: transparent; */
-        background: black;
+        /* background: black; */
     }
 
 `

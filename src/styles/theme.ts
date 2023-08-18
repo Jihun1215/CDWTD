@@ -54,7 +54,7 @@ const theme = {
 export const Theme: DefaultTheme = {
     ...theme,
     bgColor: '#F1F0E8',
-    bgColor2: '#dee2e6',
+    bgColor2: '#282c34',
     color: '#191A23',
     color2: '#E2E2E2',
 }
