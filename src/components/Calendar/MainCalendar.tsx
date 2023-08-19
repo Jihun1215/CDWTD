@@ -5,9 +5,7 @@ import DateBox from './DateBox'
 const MainCalendar = () => {
   return (
     <MainCalendarContiner>
-
-      <DateBox/>
-      
+      <DateBox />
     </MainCalendarContiner>
   )
 }

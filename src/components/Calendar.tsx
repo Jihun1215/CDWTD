@@ -23,7 +23,7 @@ const Calendar:React.FC = () => {
       <Info/>
         
         <HeaderCalendar currentDate={currentDate} setCurrentDate={setCurrentDate}/>
-        <MainCalendar/>
+        <MainCalendar />
     </CalendarContiner>
   )
 }

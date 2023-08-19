@@ -1,13 +1,13 @@
 import React from 'react'
 import { styled } from 'styled-components'
 import WeekBox from './WeekBox'
-
+// import { AllDaytype } from '../../model/type'
 
 
 const DateBox:React.FC = () => {
 
   const weeks = ['일',"월","화","수","목","금","토"]
-
+  
   return (
     <DateBoxContainer>
         
