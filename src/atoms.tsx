@@ -14,6 +14,10 @@ export const WeeksState = atom<string[]>({
     default: weeks,
 })
 
+
+
+
+// 여기 
 export const AllDayState = atom<String[]>({
     key: 'AllDayState',
     default: [],

@@ -9,14 +9,9 @@ import { ThisDayState } from '../atoms'
 const Calendar:React.FC = () => {
   const [currentDate, setCurrentDate] = useRecoilState<Date>(ThisDayState);
 
-  // 현재 날짜 객체 생성
-//  const currentDate: Date = new Date();
  const thisYear = currentDate.getFullYear(); // 년도
  const thisMonth = currentDate.getMonth() + 1; 
 
- console.log(thisYear, thisMonth)
-
-//  const 
 
   return (
     <CalendarContiner>
