@@ -29,7 +29,7 @@ const Info:React.FC = () => {
   }
 
   const weatherIconUrl = `http://openweathermap.org/img/wn/${weather.weather[0].icon}.png`;
-  console.log(weather)
+  // console.log(weather)
   return (
     <InfoContiner>
         <InfoLeftArea>

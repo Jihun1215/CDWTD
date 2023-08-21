@@ -1,12 +1,15 @@
 import { atom } from "recoil";
 
-const today: Date = new Date();
+const ThisDay: Date = new Date();
 const weeks = ['일',"월","화","수","목","금","토"];
+
+// const 
+const today = `${ThisDay.getFullYear()}-${ThisDay.getMonth() + 1}-${ThisDay.getDate()}`;
 
 
 export const ThisDayState = atom<Date>({
     key: 'ThisDayState',
-    default: today,
+    default: ThisDay,
 });
 
 export const WeeksState = atom<string[]>({
@@ -14,11 +17,19 @@ export const WeeksState = atom<string[]>({
     default: weeks,
 })
 
-
+// export const TodayState = atom<string>({
+//     key: 'ClickDayState',
+//     default: today,
+// })
 
 
 // 여기 
 export const AllDayState = atom<String[]>({
     key: 'AllDayState',
     default: [],
+})
+
+export const ClickDayState = atom<string>({
+    key: 'ClickDayState',
+    default: today,
 })

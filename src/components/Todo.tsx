@@ -1,9 +1,22 @@
 import React from 'react'
 import { styled } from 'styled-components'
+import TodoMain from './Todo/TodoMain'
+import { useRecoilState } from 'recoil';
+import { ClickDayState } from '../atoms'
+
 
 const Todo:React.FC = () => {
+
+  const [clickDate] = useRecoilState(ClickDayState);
+  console.log(clickDate)
   return (
-    <TodoContienr>Todo</TodoContienr>
+    <TodoContienr>
+      <TodoHeaderConteiner>
+        <h4>Feed | {clickDate}</h4>
+
+      </TodoHeaderConteiner>
+      <TodoMain/>
+      </TodoContienr>
   )
 }
 
@@ -16,4 +29,15 @@ const TodoContienr = styled.div`
     ${props => props.theme.FlexCenter};
     border-radius: 14px;
     background-color: ${props => props.theme.bgColor2};
+`;
+
+const TodoHeaderConteiner = styled.header`
+  width: 100%;
+  height: 10%;
+  border: 1px solid red;
+  ${props => props.theme.FlexRow};
+  align-items: center;
+  padding-left: 1.5rem;
+  font-size: 24px;
+  font-family: 800;
 `;
