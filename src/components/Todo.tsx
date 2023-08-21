@@ -14,6 +14,6 @@ const TodoContienr = styled.div`
     height: 37.5rem;
     ${props => props.theme.FlexCol};
     ${props => props.theme.FlexCenter};
-    border-radius: 4px;
+    border-radius: 14px;
     background-color: ${props => props.theme.bgColor2};
 `;

@@ -4,9 +4,9 @@ import { useRecoilState } from 'recoil';
 import { ThisDayState } from '../../atoms'
 import { BsArrowLeftShort } from "react-icons/bs"
 import { BsArrowRightShort } from "react-icons/bs"
-import { Weekstype } from '../../model/type'
 
-const HeaderCalendar:React.FC<Weekstype> = ({currentDate, setCurrentDate}) => {
+const HeaderCalendar:React.FC = () => {
+  const [currentDate, setCurrentDate] = useRecoilState<Date>(ThisDayState);
 
    const ThisDay = `${currentDate.getFullYear()}년  ${currentDate.getMonth() + 1}월`;
 
@@ -20,13 +20,11 @@ const HeaderCalendar:React.FC<Weekstype> = ({currentDate, setCurrentDate}) => {
 
   return (
     <HeaderCalendarContiner>
-
       <HeaderThisDayBox>
         {ThisDay}
       </HeaderThisDayBox>
 
       <HeaderThisDayChange>
-
         <div> 
           <BsArrowLeftShort  onClick={()=> ChangeMonth(-1)}/>
         </div>
@@ -34,7 +32,6 @@ const HeaderCalendar:React.FC<Weekstype> = ({currentDate, setCurrentDate}) => {
         <div>
           <BsArrowRightShort  onClick={()=> ChangeMonth(1)}/>
         </div>
-
       </HeaderThisDayChange>
 
     </HeaderCalendarContiner>

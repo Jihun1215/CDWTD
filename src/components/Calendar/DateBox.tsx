@@ -1,12 +1,22 @@
 import React from 'react'
 import { styled } from 'styled-components'
+import { useRecoilState } from 'recoil';
+import { WeeksState } from '../../atoms'
 import WeekBox from './WeekBox'
+import AllDay from './AllDay'
 // import { AllDaytype } from '../../model/type'
+
+
+// WeeksState
+
+  
+
 
 
 const DateBox:React.FC = () => {
 
-  const weeks = ['일',"월","화","수","목","금","토"]
+  //   const allDay = [] = mothList(nowDate);
+  const [weeks] = useRecoilState(WeeksState)
   
   return (
     <DateBoxContainer>
@@ -14,6 +24,9 @@ const DateBox:React.FC = () => {
      {weeks.map((week:string)=>{
           return <WeekBox weekName={week}></WeekBox>
      })}
+
+    
+     
 
     </DateBoxContainer>
   )
@@ -27,7 +40,5 @@ const DateBoxContainer = styled.div`
   flex: 1;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  border: 1px solid red;
-
 `;
 

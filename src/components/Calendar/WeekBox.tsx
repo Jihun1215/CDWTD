@@ -7,8 +7,6 @@ import { DateWeekData } from '../../model/type';
 
 const WeekBox:React.FC<DateWeekData> = ({weekName}) => {
 
-
-
   return (
     <WeekBoxContianer>
       <p>{weekName}</p>

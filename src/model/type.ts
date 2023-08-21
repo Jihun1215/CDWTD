@@ -10,8 +10,8 @@ export type Weekstype = {
 export type AllDaytype = {
     currentDate: Date;
     setCurrentDate :React.Dispatch<React.SetStateAction<Date>>;
-    ClickedDate: Date | undefined,
-     setClickedDate: React.Dispatch<React.SetStateAction<Date | undefined>>,
+    // ClickedDate: Date | undefined,
+    // setClickedDate: React.Dispatch<React.SetStateAction<Date | undefined>>,
 }
 
 export type WeatherData = {

@@ -20,9 +20,8 @@ const Calendar:React.FC = () => {
 
   return (
     <CalendarContiner>
-      <Info/>
-        
-        <HeaderCalendar currentDate={currentDate} setCurrentDate={setCurrentDate}/>
+        <Info/>
+        <HeaderCalendar />
         <MainCalendar />
     </CalendarContiner>
   )
@@ -40,10 +39,3 @@ const CalendarContiner = styled.div`
     gap: 10px 0;
 `;
 
-// const DateBoxContainer = styled.div`
-//   width: 100%;
-//   flex: 1;
-//   display: grid;
-//   grid-template-columns: repeat(7, 1fr);
-//   border: 1px solid red;
-// `
