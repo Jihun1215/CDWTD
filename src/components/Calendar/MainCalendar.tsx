@@ -1,5 +1,6 @@
 import React from 'react'
 import { styled } from 'styled-components'
+import { v4 as uuidv4 } from 'uuid';
 import { useRecoilState } from 'recoil';
 import { WeeksState } from '../../atoms'
 import { ThisDayState } from '../../atoms';
@@ -42,18 +43,19 @@ const MainCalendar:React.FC= () => {
   }
 
   const allDay = [] = DayArr(currentDay);
-
+  const uuid = uuidv4();
   return (
     <MainCalendarContiner>
       <DateBoxContainer>
 
-        {weeks.map((week:string)=>{
-          return <WeekBox weekName={week}></WeekBox>
+        {weeks.map((week:string, index)=>{
+          return <WeekBox weekName={week} key={index}></WeekBox>
          })}
 
-      {allDay.map((day: Date)=>{
+      {allDay.map((day: Date, index)=>{
         return <AllDay 
-                  day={day} 
+                  day={day}
+                  key={index}
                   // ClickedDate={ClickedDate} 
                   // setClickedDate={setClickedDate}
                   />

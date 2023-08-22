@@ -3,17 +3,18 @@ import { styled } from 'styled-components'
 import TodoMain from './Todo/TodoMain'
 import { useRecoilState } from 'recoil';
 import { ClickDayState } from '../atoms'
+import meunImg from "../asset/meun.svg"
 
 
 const Todo:React.FC = () => {
 
   const [clickDate] = useRecoilState(ClickDayState);
-  console.log(clickDate)
+
+
   return (
     <TodoContienr>
       <TodoHeaderConteiner>
-        <h4>Feed | {clickDate}</h4>
-
+        <h4>Feed | {clickDate}</  h4>
       </TodoHeaderConteiner>
       <TodoMain/>
       </TodoContienr>

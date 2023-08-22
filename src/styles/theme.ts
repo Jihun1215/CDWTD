@@ -54,10 +54,14 @@ const theme = {
 
 export const Theme: DefaultTheme = {
     ...theme,
-    bgColor: '#F1F0E8',
+    bgColor: '#1e1e1e',
     bgColor2: '#282c34',
-    color: '#191A23',
-    color2: '#E2E2E2',
+    color: '#E2E2E2',
+    color2: '#191A23',
+    // bgColor: '#F1F0E8',
+    // bgColor2: '#282c34',
+    // color: '#191A23',
+    // color2: '#E2E2E2',
 }
 
 // export const DarkTheme: DefaultTheme = {

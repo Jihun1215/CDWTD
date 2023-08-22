@@ -23,8 +23,10 @@ export default Layout
 
 const LayoutContiner = styled.div`
   width: 100%;
-  height: 1080px;
+  height: 980px;
   ${props => props.theme.BoxCenter};
+  background-color: ${props => props.theme.bgColor};
+  color: ${props => props.theme.color};
 `;
 
 const LayoutInContiner = styled.div`
@@ -35,10 +37,10 @@ const LayoutInContiner = styled.div`
 
 const LayoutCTContiner = styled.div`
     width: 100%;
-    height: 80%;
+    height: 90%;
     ${props => props.theme.FlexRow};
     justify-content: center;
-    color: ${props => props.theme.color2};
+
     gap: 0px 15px;
     /* ${props => props.theme.FlexCenter}; */
 `;

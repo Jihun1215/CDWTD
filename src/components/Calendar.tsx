@@ -27,7 +27,7 @@ export default Calendar
 const CalendarContiner = styled.div`
     min-width: 31.25rem;
     height: 37.5rem;
-    background-color: ${props => props.theme.bgColor2};
+    /* background-color: ${props => props.theme.bgColor2}; */
     border-radius: 6px;
     ${props => props.theme.FlexCol};
     ${props => props.theme.FlexCenter};
