@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { styled } from 'styled-components'
 import axios from 'axios'
 import { WeatherData } from '../../model/type';
+import profileDefaul  from "../../asset/profileDefaultImage.png"
 
   
 const Info:React.FC = () => {
@@ -34,8 +35,14 @@ const Info:React.FC = () => {
     <InfoContiner>
         <InfoLeftArea>
             <div>
-              <h4>지훈</h4>
-              <p>하이하이</p>
+              <div className='profile'>
+                <img src={profileDefaul}/>
+              </div>
+              <div className='text'>
+                <h4>지훈</h4>
+                <p>하이하이</p>
+              </div>
+
             </div>  
         </InfoLeftArea>
         <InfoRight>
@@ -64,16 +71,34 @@ const InfoLeftArea = styled.div`
     justify-content: center;
     padding-left: 1rem;
     > div {
-        width: 50%;
+        width: 100%;
+        height: 100%;
+        ${props => props.theme.FlexRow};
         text-align: center;
-        > h4 {
+        /* border: 1px solid blue; */
+        gap: 0 10px;
+        > .profile {
+          width: 50px;
+          height: 100%;
+          border-radius: 50px;
+          > img {
+            ${props => props.theme.WH100};
+            border-radius: 100px;
+          }
+        }
+        > .text{
+          ${props => props.theme.FlexCol};
+          justify-content: center;
+          > h4 {
             font-size: 20px;
             font-family: 600;
-        }
-        > p {
+           }
+          > p {
             font-size: 14px;
             font-family: 400;
+          }
         }
+      
     }
 `;
 

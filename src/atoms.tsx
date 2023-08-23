@@ -33,3 +33,8 @@ export const ClickDayState = atom<string>({
     key: 'ClickDayState',
     default: today,
 })
+
+export const onClickTodoMakeInputState = atom<boolean>({
+    key: 'onClickTodoMakeInputState',
+    default: false,
+})

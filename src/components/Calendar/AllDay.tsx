@@ -51,6 +51,7 @@ const AllDay:React.FC<Props>= ({day}) => {
     >
       <img src={allDayImg}/>
       <p>{day.getDate()}</p>
+      <div></div>
       </AllDayContainer>
   )
 }
@@ -60,19 +61,18 @@ export default AllDay
 
 const AllDayContainer= styled.div<ContainerProps>`
   position: relative;
-  padding: 5px;
+  /* padding: 5px; */
   border: 1px solid #333;
-  color: ${props => props.theme.colorTheme.black};
-  background-color: ${props => props.theme.colorTheme.white};
   width: 100%;
   height: 4.6875rem;
-  &:hover{
-    background-color: gray ;
-  }
+  ${props => props.theme.FlexCol};
+  align-items: center;
+  /* justify-content: center; */
   img {
     position: absolute;
-    width: 20px;
-    height: 20px;
+    width: 100%;
+    top: 10px;
+    height: 55px;
   }
   p {
     position: absolute;
@@ -86,7 +86,16 @@ const AllDayContainer= styled.div<ContainerProps>`
           `
         : css``}
   }
-
-
-
+  > div {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    bottom: 5px;
+    border-radius: 50%;
+    background: red;
+    /* border: 1px solids red; */
+  }
+  &:hover{
+    background-color: gray ;
+  }
 `;

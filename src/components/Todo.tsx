@@ -28,17 +28,16 @@ const TodoContienr = styled.div`
     height: 37.5rem;
     ${props => props.theme.FlexCol};
     ${props => props.theme.FlexCenter};
-    border-radius: 14px;
-    background-color: ${props => props.theme.bgColor2};
+    gap: 10px 0;
 `;
 
 const TodoHeaderConteiner = styled.header`
   width: 100%;
   height: 10%;
-  border: 1px solid red;
   ${props => props.theme.FlexRow};
   align-items: center;
-  padding-left: 1.5rem;
-  font-size: 24px;
-  font-family: 800;
+  > h4 {
+    font-size: 24px;
+    font-weight: 700;
+  }
 `;

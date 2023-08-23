@@ -54,9 +54,9 @@ const theme = {
 
 export const Theme: DefaultTheme = {
     ...theme,
-    bgColor: '#1e1e1e',
+    bgColor: '#fff',
     bgColor2: '#282c34',
-    color: '#E2E2E2',
+    color: '#191A23',
     color2: '#191A23',
     // bgColor: '#F1F0E8',
     // bgColor2: '#282c34',
