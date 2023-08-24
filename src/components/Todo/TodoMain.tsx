@@ -1,41 +1,27 @@
 import React , { useRef, useEffect , MouseEvent}from 'react'
 import { styled } from 'styled-components'
 import { useRecoilState } from 'recoil';
-import { ClickDayState } from '../../atoms'
-import meunImg from "../../asset/meun.svg"
 import openBox from "../../asset/openBox.png"
-import todoimg from "../../asset/profileDefaultImage.png"
 import { onClickTodoMakeInputState } from '../../atoms';
+import TodoFrom from './TodoFrom';
 
+type Fromvalue = {
+  todo?: string,
+}
 
 const TodoMain = () => {
 
+
+
+
   const [todoMakeArea , setTodoMakeArea] = useRecoilState(onClickTodoMakeInputState)
 
-  // 입력 영역의 Ref를 생성합니다.
-  const todoInputRef = useRef(null);
-
-  // const handleClickOutside = (e:any) => {
-  //   if (todoInputRef.current && !todoInputRef.current?.contains(e.target)) {
-  //     setTodoMakeArea(false);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   document.addEventListener('mousedown', handleClickOutside);
-  //   return () => {
-  //     document.removeEventListener('mousedown', handleClickOutside);
-  //   };
-  // }, []);
 
 
   const onClickTodoMakeInput = () =>{
     setTodoMakeArea(true)
   }
 
-  const onClickCloseTodoMakeInput = () =>{
-    setTodoMakeArea(false)
-  }
 
   return (
     <TodoMainConteinr>
@@ -45,13 +31,7 @@ const TodoMain = () => {
           <button onClick={onClickTodoMakeInput}>+</button>
         </TodoMakeTabBtn>
         {todoMakeArea ? (
-        <TodoMakeform ref={todoInputRef} >
-          <img src={todoimg} />
-          <input type='text'
-                 placeholder="입력" />
-          <div></div>
-          <img src={meunImg} onClick={onClickCloseTodoMakeInput}/>
-        </TodoMakeform>
+          <TodoFrom/>
       ) : null}
     </TodoMainConteinr>
   )
@@ -92,21 +72,3 @@ const TodoMakeTabBtn = styled.div`
     border-radius: 15px;
   }
 `;
-
-const TodoMakeform = styled.form`
-  width: 80%;
-  height: 1.375rem;
-  margin: 10px auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  > img{
-    width: 30px;
-    height: 30px;
-  }
-  > input {
-    min-width: 80%;
-    border-bottom: 1px solid #dee2e6;
-  }
-`;
-
