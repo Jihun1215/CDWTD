@@ -24,7 +24,7 @@ const Todo:React.FC = () => {
 export default Todo
 
 const TodoContienr = styled.div`
-    min-width: 31.25rem;
+    min-width: 25rem;
     height: 37.5rem;
     ${props => props.theme.FlexCol};
     ${props => props.theme.FlexCenter};

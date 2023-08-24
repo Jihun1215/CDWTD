@@ -15,26 +15,26 @@ const TodoMain = () => {
   // 입력 영역의 Ref를 생성합니다.
   const todoInputRef = useRef(null);
 
-    // 다른 영역을 클릭했을 때 입력 영역을 숨깁니다.
-    const handleClickOutside = (e:any) => {
-      // if (todoInputRef.current && !todoInputRef.current.contains(e.currentTarget)) {
-        // setTodoMakeArea(false);
-      // }
-    };
+  // const handleClickOutside = (e:any) => {
+  //   if (todoInputRef.current && !todoInputRef.current?.contains(e.target)) {
+  //     setTodoMakeArea(false);
+  //   }
+  // };
 
-  // 다른 영역 클릭 이벤트를 추가합니다.
-  useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
-
-
+  // useEffect(() => {
+  //   document.addEventListener('mousedown', handleClickOutside);
+  //   return () => {
+  //     document.removeEventListener('mousedown', handleClickOutside);
+  //   };
+  // }, []);
 
 
   const onClickTodoMakeInput = () =>{
     setTodoMakeArea(true)
+  }
+
+  const onClickCloseTodoMakeInput = () =>{
+    setTodoMakeArea(false)
   }
 
   return (
@@ -45,11 +45,13 @@ const TodoMain = () => {
           <button onClick={onClickTodoMakeInput}>+</button>
         </TodoMakeTabBtn>
         {todoMakeArea ? (
-        <TodoMakeInput ref={todoInputRef}>
-          <img src={todoimg}/>
-          <input type='text' />
-          <div>2</div>
-        </TodoMakeInput>
+        <TodoMakeform ref={todoInputRef} >
+          <img src={todoimg} />
+          <input type='text'
+                 placeholder="입력" />
+          <div></div>
+          <img src={meunImg} onClick={onClickCloseTodoMakeInput}/>
+        </TodoMakeform>
       ) : null}
     </TodoMainConteinr>
   )
@@ -91,22 +93,20 @@ const TodoMakeTabBtn = styled.div`
   }
 `;
 
-const TodoMakeInput = styled.div`
+const TodoMakeform = styled.form`
   width: 80%;
   height: 1.375rem;
-  margin: 0 auto;
-  border: 1px solid red;
+  margin: 10px auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
   > img{
     width: 30px;
     height: 30px;
-    border: 1px solid red;
   }
   > input {
-    width: 80%;
-    border-bottom: 1px solid blue;
+    min-width: 80%;
+    border-bottom: 1px solid #dee2e6;
   }
 `;
 

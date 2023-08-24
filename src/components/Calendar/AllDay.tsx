@@ -61,17 +61,15 @@ export default AllDay
 
 const AllDayContainer= styled.div<ContainerProps>`
   position: relative;
-  /* padding: 5px; */
-  border: 1px solid #333;
   width: 100%;
-  height: 4.6875rem;
+  height: 3.125rem;
   ${props => props.theme.FlexCol};
   align-items: center;
-  /* justify-content: center; */
+  font-size: 13px;
+  /* border: 1px solid red; */
   img {
     position: absolute;
     width: 100%;
-    top: 10px;
     height: 55px;
   }
   p {
@@ -92,7 +90,7 @@ const AllDayContainer= styled.div<ContainerProps>`
     height: 10px;
     bottom: 5px;
     border-radius: 50%;
-    background: red;
+    /* background: red; */
     /* border: 1px solids red; */
   }
   &:hover{

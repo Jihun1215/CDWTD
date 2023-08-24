@@ -17,6 +17,8 @@ const WeekBox:React.FC<DateWeekData> = ({weekName}) => {
 export default WeekBox
 
 const WeekBoxContianer= styled.div`
-  height: 40px;
+  height: 20px;
   ${props => props.theme.BoxCenter};
+  font-size: 14px;
+  margin-bottom: 10px;
 `

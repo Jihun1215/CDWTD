@@ -25,12 +25,12 @@ const Calendar:React.FC = () => {
 export default Calendar
 
 const CalendarContiner = styled.div`
-    min-width: 31.25rem;
+    min-width: 25rem;
     height: 37.5rem;
     /* background-color: ${props => props.theme.bgColor2}; */
     border-radius: 6px;
     ${props => props.theme.FlexCol};
     ${props => props.theme.FlexCenter};
-    gap: 10px 0;
+    gap: 15px 0;
 `;
 
