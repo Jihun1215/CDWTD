@@ -1,22 +1,27 @@
-import React , { useRef, useEffect , MouseEvent}from 'react'
+import React , { useState, useRef, useEffect , MouseEvent }from 'react'
+import TodoData from './TodoData';
 import { styled } from 'styled-components'
 import { useRecoilState } from 'recoil';
-import openBox from "../../asset/openBox.png"
+import { v4 as uuidv4 } from 'uuid';
 import { onClickTodoMakeInputState } from '../../atoms';
-import TodoFrom from './TodoFrom';
+import { ClickDayState } from '../../atoms'
+import TodoForm from './TodoForm';
+import { todolistState } from '../../atoms';
+import { ItemData } from '../../model/type';
+import openBox from "../../asset/openBox.png"
 
-type Fromvalue = {
-  todo?: string,
-}
 
 const TodoMain = () => {
-
-
-
+  // const 
+  const [todoData, setTodoData] = useRecoilState<ItemData[]>(todolistState);
+  const [findTodoArr, setFindTodoArr] = useState([]);
+  const [clickDate] = useRecoilState(ClickDayState);
 
   const [todoMakeArea , setTodoMakeArea] = useRecoilState(onClickTodoMakeInputState)
 
-
+  const findThisTodo = todoData.filter(function(data){
+    return data.thisDay === clickDate
+  })
 
   const onClickTodoMakeInput = () =>{
     setTodoMakeArea(true)
@@ -30,8 +35,23 @@ const TodoMain = () => {
           <span>오늘 할 일 </span>
           <button onClick={onClickTodoMakeInput}>+</button>
         </TodoMakeTabBtn>
+    
+      {
+        findThisTodo?.map((data)=>{
+          return <TodoData data={data}/>
+        })
+      }
+  
+          {/* findThisTodo?.map((data:any)=>{
+            return <TodoText>{data.title}</TodoText>
+          })
+        ) */}
+
+
+
+
         {todoMakeArea ? (
-          <TodoFrom/>
+          <TodoForm/>
       ) : null}
     </TodoMainConteinr>
   )
@@ -71,4 +91,8 @@ const TodoMakeTabBtn = styled.div`
     width: 15px;
     border-radius: 15px;
   }
+`;
+
+const TodoText = styled.div`
+
 `;

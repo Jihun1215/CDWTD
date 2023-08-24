@@ -79,11 +79,11 @@ const InfoLeftArea = styled.div`
         gap: 0 10px;
         > .profile {
           width: 50px;
-          height: 100%;
+          height: 50px;
           border-radius: 50px;
+          border: 1px solid rgb(237, 237, 237); 
           > img {
             ${props => props.theme.WH100};
-            border-radius: 100px;
           }
         }
         > .text{

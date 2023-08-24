@@ -22,3 +22,10 @@ export type WeatherData = {
         icon: string;
       }[];
   }
+
+export type ItemData = {
+    itemId: string,
+    title: string,
+    isDone: boolean,
+    thisDay: string,
+}

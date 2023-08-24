@@ -79,6 +79,7 @@ const AllDayContainer= styled.div<ContainerProps>`
     position: absolute;
     right: 5px;
     font-weight: ${({ sameMonth }) => (sameMonth ? `700` : `300`)};
+    cursor: pointer;
     ${({ sameDay }) =>
       sameDay
         ? css`
@@ -96,7 +97,7 @@ const AllDayContainer= styled.div<ContainerProps>`
     /* background: red; */
     /* border: 1px solids red; */
   }
-  &:hover{
+  /* &:hover{
     background-color: gray ;
-  }
+  } */
 `;

@@ -1,18 +1,22 @@
 import React, { useState, useRef}  from 'react'
 import { styled } from 'styled-components';
 import meunImg from "../../asset/meun.svg"
-import openBox from "../../asset/openBox.png"
+import { v4 as uuidv4 } from 'uuid';
 import todoimg from "../../asset/profileDefaultImage.png"
 import { useRecoilState } from 'recoil';
 import { onClickTodoMakeInputState } from '../../atoms';
+import { todolistState } from '../../atoms';
+import { ItemData } from '../../model/type';
+import { ClickDayState } from '../../atoms'
 
 
-type Fromvalue = {
-    todo?: string,
-  }
 
-const TodoFrom = () => {
+const TodoForm = () => {
+
+    const [thisDay] = useRecoilState(ClickDayState)
     const [todoMakeArea , setTodoMakeArea] = useRecoilState(onClickTodoMakeInputState);
+
+    const [todoData, setTodoData] = useRecoilState<ItemData[]>(todolistState);
 
     const [todoInputValue, setTodoInputValue] = useState('');
      // 입력 영역의 Ref를 생성합니다.
@@ -29,9 +33,15 @@ const TodoFrom = () => {
      const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         // 폼이 제출되면 inputValue 값을 사용합니다.
-        console.log('입력된 값:', todoInputValue);
+        // console.log('입력된 값:', todoInputValue);
         setTodoInputValue('');
-        // 이제 여기에서 값을 사용하거나 상태를 업데이트할 수 있습니다.
+        const newTodo: ItemData = {
+            itemId: uuidv4(),
+            title: todoInputValue,
+            isDone: false,
+            thisDay: thisDay,
+          };
+        setTodoData([...todoData, newTodo])
       };
 
 
@@ -48,7 +58,7 @@ const TodoFrom = () => {
   )
 }
 
-export default TodoFrom
+export default TodoForm
 
 
 const TodoMakeform = styled.form`

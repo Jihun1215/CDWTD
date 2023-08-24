@@ -1,4 +1,5 @@
 import { atom } from "recoil";
+import { ItemData } from "./model/type";
 
 const ThisDay: Date = new Date();
 const weeks = ['일',"월","화","수","목","금","토"];
@@ -37,4 +38,9 @@ export const ClickDayState = atom<string>({
 export const onClickTodoMakeInputState = atom<boolean>({
     key: 'onClickTodoMakeInputState',
     default: false,
+})
+
+export const todolistState = atom<ItemData[]>({
+    key: 'todolistState',
+    default: [],
 })
