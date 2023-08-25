@@ -97,7 +97,3 @@ const TodoMakeTabBtn = styled.div`
     border-radius: 15px;
   }
 `;
-
-const TodoText = styled.div`
-
-`;

@@ -25,7 +25,7 @@ export default TodoData
 const TodoMakeData = styled.div`
   width: 80%;
   height: 1.375rem;
-  margin: 10px auto;
+  margin: 4px auto;
   display: flex;
   align-items: center;
   justify-content: space-between;

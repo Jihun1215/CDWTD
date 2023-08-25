@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled, { css } from "styled-components";
-
 import { useRecoilState } from 'recoil';
 import { ThisDayState } from '../../atoms'
 import { ClickDayState } from '../../atoms';
+import { todolistState } from '../../atoms';
+import { ItemData } from '../../model/type';
 import allDayImg from "../../asset/profileDefaultImage.png"
 
 interface ContainerProps{
@@ -11,50 +12,65 @@ interface ContainerProps{
   sameDay?: boolean;
 }
 
-
-
 type Props = {
   day: Date
 }
-const AllDay:React.FC<Props>= ({day}) => {
 
+const AllDay:React.FC<Props>= ({day}) => {
+  const formatDateCheck =  `${day.getFullYear()}-${day.getMonth() + 1}-${day.getDate()}`;
+
+
+  // const changeformatDate = 
   const [currentDay, setCurrentDay] = useRecoilState(ThisDayState);
   const [clickDate, setClickDate] = useRecoilState(ClickDayState);
 
-  const nowTime = new Date();
+
+  const [todoData, setTodoData] = useRecoilState<ItemData[]>(todolistState);
 
   const sameMonth: boolean = currentDay.getMonth() === day.getMonth();
 
+  const findThisTodo = todoData.filter(function(data){
+    return data.thisDay === formatDateCheck
+  })
+  useEffect(()=>{
+    console.log(findThisTodo)
+  },[])
 
   // 오늘 구하기 
   const sameDay : boolean = 
-    nowTime.getFullYear() === day.getFullYear() &&
-    nowTime.getMonth() === day.getMonth() &&
-    nowTime.getDate() === day.getDate();
+  currentDay.getFullYear() === day.getFullYear() &&
+  currentDay.getMonth() === day.getMonth() &&
+  currentDay.getDate() === day.getDate();
 
     const formatDate = (day: Date) => {
-      const year = day.getFullYear();
-      const month = day.getMonth() + 1;
-      const date = day.getDate();
-      return `${year}-${month}-${date}`;
+      return `${day.getFullYear()}-${day.getMonth() + 1}-${day.getDate()}`;
     };
     
-
-
     const onClickChangeDay = () => {
       const formattedDate = formatDate(day);
       setClickDate(formattedDate)
     }
 
+
+
   return (
     <AllDayContainer
     sameMonth={sameMonth}
     sameDay={sameDay}
+    // thisdayTodo={thisdayTodo}
     onClick={() => onClickChangeDay()}
     >
       <img src={allDayImg}/>
       <p>{day.getDate()}</p>
-      <div></div>
+      <div>
+      {
+        findThisTodo?.length > 0 ? (
+          // findThisTodo.map((data:any)=>{
+            <p>{findThisTodo.length}</p>
+          // })
+        ): null
+      }
+      </div>
       </AllDayContainer>
   )
 }
