@@ -5,11 +5,17 @@ import todoimg from "../../asset/profileDefaultImage.png"
 import { ItemData } from '../../model/type';
 
 const TodoData = ({data}:any) => {
+    // console.log(data)
+
+    const EditTodoShow = (id:string) =>{
+        console.log(id)
+    }
   return ( 
     <TodoMakeData>
     <img src={todoimg} />
         <span>{data.title}</span>    
-    <img src={meunImg}/>
+    <img src={meunImg} 
+    onClick={(()=>EditTodoShow(data.itemId))}/>
   </TodoMakeData>
   )
 }

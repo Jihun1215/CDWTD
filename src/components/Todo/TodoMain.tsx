@@ -5,6 +5,7 @@ import { useRecoilState } from 'recoil';
 import { v4 as uuidv4 } from 'uuid';
 import { onClickTodoMakeInputState } from '../../atoms';
 import { ClickDayState } from '../../atoms'
+import { thisTodoState } from '../../atoms';
 import TodoForm from './TodoForm';
 import { todolistState } from '../../atoms';
 import { ItemData } from '../../model/type';
@@ -14,15 +15,25 @@ import openBox from "../../asset/openBox.png"
 const TodoMain = () => {
   // const 
   const [todoData, setTodoData] = useRecoilState<ItemData[]>(todolistState);
-  const [findTodoArr, setFindTodoArr] = useState([]);
   const [clickDate] = useRecoilState(ClickDayState);
 
   const [todoMakeArea , setTodoMakeArea] = useRecoilState(onClickTodoMakeInputState)
 
+  // 여기에 오늘 날짜에 해당하는 Todo 들어간당 
+  const [findTodoArr, setFindTodoArr] = useRecoilState(thisTodoState)
+
   const findThisTodo = todoData.filter(function(data){
     return data.thisDay === clickDate
   })
-  console.log(findThisTodo)
+
+  useEffect(()=>{
+    if(setFindTodoArr.length > 0){
+      setFindTodoArr(findThisTodo)
+    }
+    console.log(findTodoArr)
+  },[todoData])
+
+  // console.log(findThisTodo)
   const onClickTodoMakeInput = () =>{
     setTodoMakeArea(true)
   }
@@ -38,8 +49,8 @@ const TodoMain = () => {
     
       {
         findThisTodo?.length > 0 ? (
-          findThisTodo?.map((data)=>{
-          return <TodoData data={data}/>
+          findThisTodo?.map((data: ItemData)=>{
+          return <TodoData data={data} key={data.itemId} />
           })
         ):null 
       }

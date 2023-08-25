@@ -1,5 +1,6 @@
 import { atom } from "recoil";
 import { ItemData } from "./model/type";
+import { recoilPersist } from "recoil-persist";
 
 const ThisDay: Date = new Date();
 const weeks = ['일',"월","화","수","목","금","토"];
@@ -40,7 +41,19 @@ export const onClickTodoMakeInputState = atom<boolean>({
     default: false,
 })
 
+const { persistAtom } = recoilPersist({
+    key: 'todoItem', //원하는 key 값 입력
+    storage: localStorage,
+  })
+
+
 export const todolistState = atom<ItemData[]>({
     key: 'todolistState',
+    default: [],
+    effects_UNSTABLE: [persistAtom],
+})
+
+export const thisTodoState = atom<ItemData[]>({
+    key: 'thisTodoState',
     default: [],
 })
