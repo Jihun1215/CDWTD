@@ -22,7 +22,7 @@ const TodoMain = () => {
   const findThisTodo = todoData.filter(function(data){
     return data.thisDay === clickDate
   })
-
+  console.log(findThisTodo)
   const onClickTodoMakeInput = () =>{
     setTodoMakeArea(true)
   }
@@ -37,19 +37,13 @@ const TodoMain = () => {
         </TodoMakeTabBtn>
     
       {
-        findThisTodo?.map((data)=>{
+        findThisTodo?.length > 0 ? (
+          findThisTodo?.map((data)=>{
           return <TodoData data={data}/>
-        })
-      }
-  
-          {/* findThisTodo?.map((data:any)=>{
-            return <TodoText>{data.title}</TodoText>
           })
-        ) */}
-
-
-
-
+        ):null 
+      }
+      
         {todoMakeArea ? (
           <TodoForm/>
       ) : null}
