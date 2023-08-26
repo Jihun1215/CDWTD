@@ -19,19 +19,27 @@ const TodoData = ({data}:any) => {
         setTodolistArr(Delete)
     }
     
-    const isDoneCheck  = (data:ItemData) =>{
-        console.log(data)
-        // const 
+    const isDoneChange = (id:string) =>{
+        const updatedList = todolistArr.map((todo) => {
+            if (todo.itemId === id) {
+              // 특정 아이템의 isDone 값을 토글
+              return { ...todo, isDone: !todo.isDone };
+            } else {
+              return todo;
+            }
+          });
+          console.log(updatedList)
+          setTodolistArr(updatedList);
     }
     
   return ( 
     <TodoMakeData>
         {
             data.isDone ? (
-                <div>2</div>
+                <img src={todoimg} className='isCheck' onClick={(()=>{isDoneChange(data.itemId)})}/>
             ) : 
             (
-                <img src={todoimg} className='isCheck' onClick={(()=>{isDoneCheck(data)})}/>
+                <img src={todoimg} className='isCheck' onClick={(()=>{isDoneChange(data.itemId)})}/>
             )
         }
 
