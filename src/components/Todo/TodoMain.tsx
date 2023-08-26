@@ -19,7 +19,7 @@ const TodoMain = () => {
 
   const [todoMakeArea , setTodoMakeArea] = useRecoilState(onClickTodoMakeInputState)
 
-  // 여기에 오늘 날짜에 해당하는 Todo 들어간당 
+  // 여기에 오늘 날짜에 해당하는 Todo State 가 있다. 
   const [findTodoArr, setFindTodoArr] = useRecoilState(thisTodoState)
 
   const findThisTodo = todoData.filter(function(data){
@@ -30,10 +30,8 @@ const TodoMain = () => {
     if(setFindTodoArr.length > 0){
       setFindTodoArr(findThisTodo)
     }
-    console.log(findTodoArr)
   },[todoData])
 
-  // console.log(findThisTodo)
   const onClickTodoMakeInput = () =>{
     setTodoMakeArea(true)
   }
@@ -42,7 +40,7 @@ const TodoMain = () => {
   return (
     <TodoMainConteinr>
         <TodoMakeTabBtn>
-          <img src={openBox} alt='openBox'/>
+          <img src={openBox} alt='openBox' />
           <span>오늘 할 일 </span>
           <button onClick={onClickTodoMakeInput}>+</button>
         </TodoMakeTabBtn>

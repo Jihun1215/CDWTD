@@ -24,6 +24,7 @@ export type WeatherData = {
   }
 
 export type ItemData = {
+    // filter(arg0: (data: { itemId: string; }) => boolean): unknown;
     // length: ReactNode;
     itemId: string,
     title: string,

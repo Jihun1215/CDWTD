@@ -1,18 +1,40 @@
 import React from 'react'
 import { styled } from 'styled-components';
+import { useRecoilState } from 'recoil';
+import { todolistState } from '../../atoms';
 import meunImg from "../../asset/meun.svg"
 import todoimg from "../../asset/profileDefaultImage.png"
 import { ItemData } from '../../model/type';
 
 const TodoData = ({data}:any) => {
+
+    // 여기에 데이터에서 원하는 값만 가지고 와서 수정을 해야한다. 
+    const [todolistArr, setTodolistArr] = useRecoilState(todolistState);    
     // console.log(data)
 
     const EditTodoShow = (id:string) =>{
-        console.log(id)
+        const Delete = todolistArr.filter((todo)=>{
+            return todo.itemId !== id
+        })
+        setTodolistArr(Delete)
     }
+    
+    const isDoneCheck  = (data:ItemData) =>{
+        console.log(data)
+        // const 
+    }
+    
   return ( 
     <TodoMakeData>
-    <img src={todoimg} />
+        {
+            data.isDone ? (
+                <div>2</div>
+            ) : 
+            (
+                <img src={todoimg} className='isCheck' onClick={(()=>{isDoneCheck(data)})}/>
+            )
+        }
+
         <span>{data.title}</span>    
     <img src={meunImg} 
     onClick={(()=>EditTodoShow(data.itemId))}/>
@@ -32,6 +54,11 @@ const TodoMakeData = styled.div`
   > img{
     width: 30px;
     height: 30px;
+    cursor: pointer;
+  }
+  > .isCheck{
+    width: 40px;
+    height: 40px;
   }
   > input {
     min-width: 80%;

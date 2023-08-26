@@ -46,7 +46,7 @@ const { persistAtom } = recoilPersist({
     storage: localStorage,
   })
 
-
+// Todo리스트가 전체로 들어있는 State
 export const todolistState = atom<ItemData[]>({
     key: 'todolistState',
     default: [],

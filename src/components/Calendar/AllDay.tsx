@@ -32,9 +32,6 @@ const AllDay:React.FC<Props>= ({day}) => {
   const findThisTodo = todoData.filter(function(data){
     return data.thisDay === formatDateCheck
   })
-  useEffect(()=>{
-    console.log(findThisTodo)
-  },[])
 
   // 오늘 구하기 
   const sameDay : boolean = 
@@ -60,13 +57,13 @@ const AllDay:React.FC<Props>= ({day}) => {
     // thisdayTodo={thisdayTodo}
     onClick={() => onClickChangeDay()}
     >
-      <img src={allDayImg}/>
+      <img src={allDayImg} />
       <p>{day.getDate()}</p>
       <div>
       {
         findThisTodo?.length > 0 ? (
           // findThisTodo.map((data:any)=>{
-            <p>{findThisTodo.length}</p>
+            <span>{findThisTodo.length}</span>
           // })
         ): null
       }
@@ -85,7 +82,6 @@ const AllDayContainer= styled.div<ContainerProps>`
   ${props => props.theme.FlexCol};
   align-items: center;
   font-size: 13px;
-  /* border: 1px solid red; */
   img {
     position: absolute;
     width: 100%;
@@ -106,12 +102,21 @@ const AllDayContainer= styled.div<ContainerProps>`
   }
   > div {
     position: absolute;
-    width: 10px;
-    height: 10px;
-    bottom: 5px;
+    width: 12.5px;
+    height: 12.5px;
+    bottom: 15px;
     border-radius: 50%;
-    /* background: red; */
-    /* border: 1px solids red; */
+    ${props => props.theme.BoxCenter};
+    /* border: 1px solid red; */
+    > span {
+      position: absolute;
+      /* top: -16px; */
+      /* color: red; */
+      font-size: 12px;
+      font-family: 700;
+      /* background-color: red; */
+      /* border: 1px solid red */
+    }
   }
   /* &:hover{
     background-color: gray ;
