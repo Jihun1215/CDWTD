@@ -6,6 +6,7 @@ import meunImg from "../../asset/meun.svg"
 import todoimg from "../../asset/profileDefaultImage.png"
 import { ItemData } from '../../model/type';
 import { bottomTodoChangeState } from '../../atoms';
+import { ThisTodoIdState } from '../../atoms';
 
 const TodoData = ({data}:any) => {
 
@@ -13,11 +14,12 @@ const TodoData = ({data}:any) => {
     const [todolistArr, setTodolistArr] = useRecoilState(todolistState);    
 
     const [bottomSheet, setBottomSheet] = useRecoilState(bottomTodoChangeState)
-
+    const [ThisTodoId, setThisTodoId] = useRecoilState(ThisTodoIdState)
 
 
     const EditTodoShow = (id:string) =>{
         setBottomSheet(true)
+        setThisTodoId(id)
     }
     
     const isDoneChange = (id:string) =>{

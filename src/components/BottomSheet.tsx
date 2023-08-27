@@ -2,6 +2,8 @@ import React , { useEffect }from 'react'
 import { styled } from 'styled-components'
 import { useRecoilState } from 'recoil';
 import { bottomTodoChangeState } from '../atoms'; 
+import { ThisTodoIdState } from '../atoms';
+import { todolistState } from '../atoms';
 import { toUp, toDown } from '../styles/Animation';
 import eidtimg from "../asset/edit.png";
 import deleteimg from "../asset/bin.png";
@@ -10,7 +12,17 @@ import deleteimg from "../asset/bin.png";
 const BottomSheet = () => {
     const [bottomSheet, setBottomSheet] = useRecoilState(bottomTodoChangeState)
     // console.log(bottomSheet)
-  
+    const [todolistArr, setTodolistArr] = useRecoilState(todolistState);
+    const [ThisTodoId, setThisTodoId] = useRecoilState(ThisTodoIdState)
+    console.log(ThisTodoId)
+    const deleteTodo = () => {
+        
+        const updatedList = todolistArr.filter((todo) => todo.itemId !== ThisTodoId);
+        setTodolistArr(updatedList);
+        setBottomSheet(false)
+        console.log("삭제 성공")
+    }
+
      useEffect(() => {
         const handleDocumentClick = (event: MouseEvent) => {
           // 클릭한 요소에 대한 정보 얻기
@@ -41,8 +53,8 @@ const BottomSheet = () => {
                     <p>수정하기</p>
                 </div>
 
-                <div>
-                    <img src={deleteimg}/>
+                <div onClick={deleteTodo}>
+                    <img src={deleteimg} />
                     <p>삭제하기</p>
                 </div>
             </BottomEidtAndDeleteArea>
@@ -87,7 +99,7 @@ const BottomEidtAndDeleteArea = styled.div`
     width: 100%;
     height: 88%;
     ${props => props.theme.BoxCenter};
-    gap: 0 50px;
+    gap: 0 30px;
     > div {
         width: 12.5rem;
         height: 6.25rem;
@@ -95,6 +107,7 @@ const BottomEidtAndDeleteArea = styled.div`
         ${props => props.theme.FlexCenter};
         gap: 10px 0;
         background-color: #adb5bd;
+        cursor: pointer;
         > img {
             width: 30px;
             height: 30px;
