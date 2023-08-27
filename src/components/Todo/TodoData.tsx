@@ -5,18 +5,19 @@ import { todolistState } from '../../atoms';
 import meunImg from "../../asset/meun.svg"
 import todoimg from "../../asset/profileDefaultImage.png"
 import { ItemData } from '../../model/type';
+import { bottomTodoChangeState } from '../../atoms';
 
 const TodoData = ({data}:any) => {
 
     // 여기에 데이터에서 원하는 값만 가지고 와서 수정을 해야한다. 
     const [todolistArr, setTodolistArr] = useRecoilState(todolistState);    
-    // console.log(data)
+
+    const [bottomSheet, setBottomSheet] = useRecoilState(bottomTodoChangeState)
+
+
 
     const EditTodoShow = (id:string) =>{
-        const Delete = todolistArr.filter((todo)=>{
-            return todo.itemId !== id
-        })
-        setTodolistArr(Delete)
+        setBottomSheet(true)
     }
     
     const isDoneChange = (id:string) =>{

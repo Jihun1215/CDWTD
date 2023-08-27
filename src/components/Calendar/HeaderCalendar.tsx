@@ -4,6 +4,7 @@ import { useRecoilState } from 'recoil';
 import { ThisDayState } from '../../atoms'
 import { BsArrowLeftShort } from "react-icons/bs"
 import { BsArrowRightShort } from "react-icons/bs"
+import logoImg from "../../asset/profileDefaultImage.png"
 
 const HeaderCalendar:React.FC = () => {
   const [currentDate, setCurrentDate] = useRecoilState<Date>(ThisDayState);
@@ -22,6 +23,8 @@ const HeaderCalendar:React.FC = () => {
     <HeaderCalendarContiner>
       <HeaderThisDayBox>
         {ThisDay}
+        <img src={logoImg}/>
+        <p>2</p>
       </HeaderThisDayBox>
 
       <HeaderThisDayChange>
@@ -54,6 +57,11 @@ const HeaderThisDayBox = styled.div`
   ${props => props.theme.FlexRow};
   align-items: center;
   padding-left: .625rem;
+  gap: 0 10px;
+  > img {
+    width: 40px;
+    height: 40px;
+  }
 `;
 
 const HeaderThisDayChange = styled.div`
