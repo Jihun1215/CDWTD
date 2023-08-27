@@ -3,6 +3,8 @@ import { styled } from 'styled-components'
 import { useRecoilState } from 'recoil';
 import { bottomTodoChangeState } from '../atoms'; 
 import { toUp, toDown } from '../styles/Animation';
+import eidtimg from "../asset/edit.png";
+import deleteimg from "../asset/bin.png";
 
 
 const BottomSheet = () => {
@@ -32,7 +34,22 @@ const BottomSheet = () => {
     <BottomSheetContiner>
         <BottomSheetArea>
             <div className='top'></div>
+            
+            <BottomEidtAndDeleteArea>
+                <div>
+                    <img src={eidtimg}/>
+                    <p>수정하기</p>
+                </div>
+
+                <div>
+                    <img src={deleteimg}/>
+                    <p>삭제하기</p>
+                </div>
+            </BottomEidtAndDeleteArea>
+
         </BottomSheetArea>
+
+
     </BottomSheetContiner>
   )
 }
@@ -61,7 +78,30 @@ const BottomSheetArea = styled.section`
     background-color: #fff;
     > .top{
         width: 100%;
-        height: 1.25rem;
+        height: 12%;
         border: 1px solid red;
+    }
+`;
+
+const BottomEidtAndDeleteArea = styled.div`
+    width: 100%;
+    height: 88%;
+    ${props => props.theme.BoxCenter};
+    gap: 0 50px;
+    > div {
+        width: 12.5rem;
+        height: 6.25rem;
+        ${props => props.theme.FlexCol};
+        ${props => props.theme.FlexCenter};
+        gap: 10px 0;
+        background-color: #adb5bd;
+        > img {
+            width: 30px;
+            height: 30px;
+        }
+        > p {
+            font-weight: 600;
+            color: #fff;
+        }
     }
 `;
