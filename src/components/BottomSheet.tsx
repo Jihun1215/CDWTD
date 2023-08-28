@@ -17,9 +17,13 @@ const BottomSheet = () => {
 
     
     const deleteTodo = () => {
-        const updatedList = todolistArr.filter((todo) => todo.itemId !== ThisTodoId);
-        setTodolistArr(updatedList);
-        setBottomSheet(false)
+        const shouldDelete = window.confirm('이 항목을 삭제하시겠습니까?');
+        if (shouldDelete) {
+            const updatedList = todolistArr.filter((todo) => todo.itemId !== ThisTodoId);
+            setTodolistArr(updatedList);
+            setBottomSheet(false)
+        }
+        
     }
 
      useEffect(() => {
@@ -44,7 +48,9 @@ const BottomSheet = () => {
   return (
     <BottomSheetContiner>
         <BottomSheetArea>
-            <div className='top'></div>
+            <div className='top'>
+                <div></div>
+            </div>
             
             <BottomEidtAndDeleteArea>
                 <div>
@@ -90,7 +96,13 @@ const BottomSheetArea = styled.section`
     > .top{
         width: 100%;
         height: 12%;
-        border: 1px solid red;
+        ${props => props.theme.BoxCenter};
+        > div {
+            width: 36px;
+            height: 4px;
+            background-color: #00000024;
+            border-radius: 4px;
+        }
     }
 `;
 
