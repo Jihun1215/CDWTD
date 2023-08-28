@@ -14,13 +14,12 @@ const BottomSheet = () => {
     // console.log(bottomSheet)
     const [todolistArr, setTodolistArr] = useRecoilState(todolistState);
     const [ThisTodoId, setThisTodoId] = useRecoilState(ThisTodoIdState)
-    console.log(ThisTodoId)
+
+    
     const deleteTodo = () => {
-        
         const updatedList = todolistArr.filter((todo) => todo.itemId !== ThisTodoId);
         setTodolistArr(updatedList);
         setBottomSheet(false)
-        console.log("삭제 성공")
     }
 
      useEffect(() => {
@@ -77,7 +76,7 @@ const BottomSheetContiner = styled.div`
     background-color: #00000099;
     display: flex;
     justify-content: center;
-    animation: ${toUp} 0.25s ease-in-out;
+    /* animation: ${toUp} 0.25s ease-in-out; */
 `;
 
 const BottomSheetArea = styled.section`
