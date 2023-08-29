@@ -86,6 +86,7 @@ const AllDayContainer= styled.div<ContainerProps>`
     position: absolute;
     width: 100%;
     height: 55px;
+    cursor: pointer;
   }
   p {
     position: absolute;

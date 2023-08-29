@@ -41,7 +41,7 @@ const TodoMain = () => {
     <TodoMainConteinr>
         <TodoMakeTabBtn>
           <img src={openBox} alt='openBox' />
-          <span>오늘 할 일 </span>
+          <span>할 일 </span>
           <button onClick={onClickTodoMakeInput}>+</button>
         </TodoMakeTabBtn>
     
@@ -71,7 +71,7 @@ const TodoMainConteinr = styled.div`
 `;
 
 const TodoMakeTabBtn = styled.div`
-  width: 7.5rem;
+  width: 6.25rem;
   height: 2.125rem;
   display: flex;
   flex-direction: row;
@@ -81,6 +81,7 @@ const TodoMakeTabBtn = styled.div`
   border-radius: 4px;
   background-color: #dee2e6;
   gap: 0px 5px;
+  /* color: #AE68EC; */
   > img {
     width: 1.375rem;
     height: 1.375rem; 

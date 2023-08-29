@@ -7,6 +7,7 @@ import { todolistState } from '../atoms';
 import { toUp, toDown } from '../styles/Animation';
 import eidtimg from "../asset/edit.png";
 import deleteimg from "../asset/bin.png";
+// import checkbox from "../asset/checkbox.svg"
 
 
 const BottomSheet = () => {
@@ -15,7 +16,10 @@ const BottomSheet = () => {
     const [todolistArr, setTodolistArr] = useRecoilState(todolistState);
     const [ThisTodoId, setThisTodoId] = useRecoilState(ThisTodoIdState)
 
-    
+    const editTodo = () => {
+
+    }
+
     const deleteTodo = () => {
         const shouldDelete = window.confirm('이 항목을 삭제하시겠습니까?');
         if (shouldDelete) {
@@ -53,7 +57,7 @@ const BottomSheet = () => {
             </div>
             
             <BottomEidtAndDeleteArea>
-                <div>
+                <div onClick={editTodo}>
                     <img src={eidtimg}/>
                     <p>수정하기</p>
                 </div>

@@ -2,11 +2,12 @@ import React from 'react'
 import { styled } from 'styled-components';
 import { useRecoilState } from 'recoil';
 import { todolistState } from '../../atoms';
-import meunImg from "../../asset/meun.svg"
-import todoimg from "../../asset/profileDefaultImage.png"
 import { ItemData } from '../../model/type';
 import { bottomTodoChangeState } from '../../atoms';
 import { ThisTodoIdState } from '../../atoms';
+import meunImg from "../../asset/meun.svg"
+import todoimg from "../../asset/profileDefaultImage.png"
+import checkbox from '../../asset/checkbox.svg'
 
 const TodoData = ({data}:any) => {
 
@@ -31,7 +32,7 @@ const TodoData = ({data}:any) => {
               return todo;
             }
           });
-          console.log(updatedList)
+        //   console.log(updatedList)
           setTodolistArr(updatedList);
     }
     
@@ -39,11 +40,10 @@ const TodoData = ({data}:any) => {
     <TodoMakeData>
         {
             data.isDone ? (
-                <img src={todoimg} className='isCheck' onClick={(()=>{isDoneChange(data.itemId)})}/>
-            ) : 
-            (
-                <img src={todoimg} className='isCheck' onClick={(()=>{isDoneChange(data.itemId)})}/>
-            )
+                    <img src={checkbox} className='isCheck' onClick={(()=>{isDoneChange(data.itemId)})}/>                
+            ) : (   
+                <img src={todoimg} onClick={(()=>{isDoneChange(data.itemId)})}/>
+                )
         }
 
         <span>{data.title}</span>    
@@ -62,15 +62,13 @@ const TodoMakeData = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  > img{
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-  }
-  > .isCheck{
+    > img{
     width: 40px;
     height: 40px;
-  }
+    cursor: pointer;
+    }
+ 
+
   > input {
     min-width: 80%;
     border-bottom: 1px solid #dee2e6;

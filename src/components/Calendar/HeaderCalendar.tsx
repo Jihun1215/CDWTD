@@ -2,12 +2,21 @@ import React from 'react'
 import { styled } from 'styled-components'
 import { useRecoilState } from 'recoil';
 import { ThisDayState } from '../../atoms'
+import { todolistState } from '../../atoms';
 import { BsArrowLeftShort } from "react-icons/bs"
 import { BsArrowRightShort } from "react-icons/bs"
 import logoImg from "../../asset/profileDefaultImage.png"
+import { ItemData } from '../../model/type';
+
 
 const HeaderCalendar:React.FC = () => {
   const [currentDate, setCurrentDate] = useRecoilState<Date>(ThisDayState);
+  const [todoData, setTodoData] = useRecoilState<ItemData[]>(todolistState);
+
+
+  const findThisTodo = todoData.filter(function(data){
+    return data.isDone === true
+  })
 
    const ThisDay = `${currentDate.getFullYear()}년  ${currentDate.getMonth() + 1}월`;
 
@@ -22,9 +31,12 @@ const HeaderCalendar:React.FC = () => {
   return (
     <HeaderCalendarContiner>
       <HeaderThisDayBox>
-        {ThisDay}
-        <img src={logoImg}/>
-        <p>2</p>
+        <h4>{ThisDay}</h4>
+        <div>
+          <img src={logoImg}/>
+          <p>{findThisTodo?.length}</p>
+        </div>
+      
       </HeaderThisDayBox>
 
       <HeaderThisDayChange>
@@ -57,11 +69,26 @@ const HeaderThisDayBox = styled.div`
   ${props => props.theme.FlexRow};
   align-items: center;
   padding-left: .625rem;
-  gap: 0 10px;
-  > img {
-    width: 40px;
-    height: 40px;
-  }
+  gap: 0 5px;
+  > div {
+    width: 50px;
+    height: 100%;
+    position: relative;
+    ${props => props.theme.FlexRow};
+    ${props => props.theme.FlexCenter};
+    > img {
+      position: absolute;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+    }
+    > p {
+      position: absolute;
+      right: 22px;
+      bottom: 11px;
+     }
+  } 
+  
 `;
 
 const HeaderThisDayChange = styled.div`
