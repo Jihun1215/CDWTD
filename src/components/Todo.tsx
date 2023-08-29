@@ -10,7 +10,6 @@ const Todo:React.FC = () => {
 
   const [clickDate] = useRecoilState(ClickDayState);
 
-
   return (
     <TodoContienr>
       <TodoHeaderConteiner>

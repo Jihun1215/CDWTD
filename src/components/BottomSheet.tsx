@@ -4,9 +4,11 @@ import { useRecoilState } from 'recoil';
 import { bottomTodoChangeState } from '../atoms'; 
 import { ThisTodoIdState } from '../atoms';
 import { todolistState } from '../atoms';
+import { changeTodo } from '../atoms';
 import { toUp, toDown } from '../styles/Animation';
 import eidtimg from "../asset/edit.png";
 import deleteimg from "../asset/bin.png";
+
 // import checkbox from "../asset/checkbox.svg"
 
 
@@ -14,10 +16,12 @@ const BottomSheet = () => {
     const [bottomSheet, setBottomSheet] = useRecoilState(bottomTodoChangeState)
     // console.log(bottomSheet)
     const [todolistArr, setTodolistArr] = useRecoilState(todolistState);
-    const [ThisTodoId, setThisTodoId] = useRecoilState(ThisTodoIdState)
+    const [ThisTodoId, setThisTodoId] = useRecoilState(ThisTodoIdState);
+    const [eidtTodoArea, setEditTodoArea] = useRecoilState(changeTodo)
 
     const editTodo = () => {
-
+        console.log(ThisTodoId);
+        setEditTodoArea(true)
     }
 
     const deleteTodo = () => {

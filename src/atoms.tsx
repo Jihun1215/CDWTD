@@ -67,3 +67,8 @@ export const ThisTodoIdState = atom<string | undefined>({
     key: 'ThisTodoIdState',
     default: undefined,
 })
+
+export const changeTodo = atom<boolean>({
+    key: 'changeTodo',
+    default: false,
+})

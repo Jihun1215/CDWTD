@@ -9,11 +9,15 @@ import { todolistState } from '../../atoms';
 import { ItemData } from '../../model/type';
 import { ClickDayState } from '../../atoms';
 
+
+
 const TodoForm = () => {
   const [thisDay] = useRecoilState(ClickDayState);
   const [todoMakeArea, setTodoMakeArea] = useRecoilState(onClickTodoMakeInputState);
   const [todoData, setTodoData] = useRecoilState<ItemData[]>(todolistState);
   const [todoInputValue, setTodoInputValue] = useState('');
+
+
 
   // 입력 영역의 Ref를 생성합니다.
   const todoInputRef = useRef<HTMLInputElement | null>(null);
