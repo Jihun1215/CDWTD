@@ -28,14 +28,17 @@ const TodoForm = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setTodoInputValue('');
-    const newTodo: ItemData = {
-      itemId: uuidv4(),
-      title: todoInputValue,
-      isDone: false,
-      thisDay: thisDay,
-    };
-    setTodoData([...todoData, newTodo]);
+    if(todoInputValue !== ""){
+      setTodoInputValue('');
+      const newTodo: ItemData = {
+        itemId: uuidv4(),
+        title: todoInputValue,
+        isDone: false,
+        thisDay: thisDay,
+      };
+      setTodoData([...todoData, newTodo]);
+    }
+   
   };
 
   useEffect(() => {
@@ -49,6 +52,7 @@ const TodoForm = () => {
 
 
   useEffect(() => {
+
     const handleDocumentClick = (event: MouseEvent) => {
       // 클릭한 요소에 대한 정보 얻기
       const clickedElement = event.target as HTMLElement;

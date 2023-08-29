@@ -29,7 +29,7 @@ const Info:React.FC = () => {
         </InfoLeftArea>
         <InfoRight>
           <img src={weatherIconUrl} alt="Weather Icon" />
-          <p>{weather.main.temp}°C</p>
+          <p>{weather?.main.temp}°C</p>
         </InfoRight>
       
     </InfoContiner>
