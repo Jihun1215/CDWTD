@@ -55,9 +55,7 @@ const LayoutCTContiner = styled.div`
   width: 100%;
   height: 90%;
   ${props => props.theme.FlexRow};
-  justify-content: center;
+  ${props => props.theme.FlexCenter};
   gap: 0px 15px;
-  /* ${props => props.theme.FlexCenter}; */
 `;
 
-// const LayoutHeaderContiner = styled.``;
